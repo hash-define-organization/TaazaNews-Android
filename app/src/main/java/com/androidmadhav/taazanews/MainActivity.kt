@@ -10,27 +10,30 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), NewsItemClicked {
+
+    private lateinit var mAdapter: NewsListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         NewsRecycler.layoutManager = LinearLayoutManager(this)
 
-        val items = fetchData()
-        val adapter = NewsListAdapter(items, this)
-        NewsRecycler.adapter = adapter
+        fetchData()
+        mAdapter = NewsListAdapter( this)
+        NewsRecycler.adapter = mAdapter
     }
 
-    private fun fetchData(): ArrayList<News> {
-        val newsArray = ArrayList<News>()
-        val url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=076e6ff77c764d6f9bd37ee5bc30a27c"
+    private fun fetchData() {
+
+        val url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,
             url,
             null,
             {
                 val allNewsInJson = it.getJSONArray("articles")
-
+                val newsArray = ArrayList<News>()
                 for(idx in 0 until allNewsInJson.length()){
 
                     val singleNewsInJson = allNewsInJson.optJSONObject(idx)
@@ -42,6 +45,9 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
                         )
                     newsArray.add(newsInNeededFormat)
                 }
+
+                mAdapter.updateNews(newsArray)
+
             },
             {
 
@@ -49,11 +55,11 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
 
         )
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
-        return newsArray
 
     }
 
+
     override fun onItemClicked(item: News) {
-        Toast.makeText(this, "Clicked $item", Toast.LENGTH_SHORT).show()
+        TODO("Not yet implemented")
     }
 }
