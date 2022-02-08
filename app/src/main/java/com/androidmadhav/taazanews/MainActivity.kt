@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        NewsRecycler.layoutManager = LinearLayoutManager(this)
+        NewsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         fetchData()
         mAdapter = NewsListAdapter( this)
