@@ -1,27 +1,30 @@
 package com.androidmadhav.taazanews
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
-import kotlinx.android.synthetic.main.activity_main.*
+import com.androidmadhav.taazanews.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity(), NewsItemClicked {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var mAdapter: NewsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        NewsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.NewsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         fetchData()
         mAdapter = NewsListAdapter( this)
-        NewsRecycler.adapter = mAdapter
+        binding.NewsRecycler.adapter = mAdapter
     }
 
     private fun fetchData() {
@@ -60,6 +63,9 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
 
 
     override fun onItemClicked(item: News) {
-        TODO("Not yet implemented")
+        val intent = Intent(this, NewsDetails::class.java)
+            .putExtra("news", item)
+
+        startActivity(intent)
     }
 }

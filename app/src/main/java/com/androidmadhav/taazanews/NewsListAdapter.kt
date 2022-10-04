@@ -10,7 +10,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.item_news_2.view.*
 
 
 class NewsListAdapter( private val listener: NewsItemClicked): RecyclerView.Adapter<NewsViewHolder>() {
@@ -43,11 +42,9 @@ class NewsListAdapter( private val listener: NewsItemClicked): RecyclerView.Adap
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
 
 //        yaha pr lagane pr bhi holder ke andr, mtlb change retained rehta hai.
-//        holder.itemView.setOnClickListener {
-//            if (holder.adapterPosition > 25) {
-//                holder.itemView.findViewById<TextView>(R.id.title).setTextColor(584858)
-//            }
-//        }
+        holder.itemView.setOnClickListener {
+            listener.onItemClicked(items[position])
+        }
 
         val currentItem = items[position]
         holder.titleView.text = currentItem.title
