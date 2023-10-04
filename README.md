@@ -11,7 +11,9 @@
 <p align="center">
   <!-- <img src="https://i.ibb.co/NxXxwHX/define-logo.jpg" alt="define-logo" border="0"></a> -->
   
-![image](https://user-images.githubusercontent.com/96205648/193408591-1c9cf31d-b6c8-49ba-9ee4-f9bf832cf686.png)
+
+![WhatsApp Image 2023-10-05 at 2 03 02 AM](https://github.com/AkanshJain12mg/TaazaNews-Android/assets/99735256/96e21589-86ff-49d2-acf2-cbcce85b33ad)
+
 
 </p>
 
@@ -24,7 +26,9 @@
 
 ## :label: Participation Rules 📝
 
-➡️ Pull requests can be made to any public repository on GitHub, look for the "hacktoberfest" topic to know whether the project is participating or not. The pull request must contain commits you made yourself. 
+➡️ Pull requests can be made to any public repository on GitHub, look for the "hacktoberfest" topic to know whether the project is participating or not.
+
+➡️ The pull request must contain commits you made yourself.
 
 ➡️ If a maintainer reports your pull request as 🔴<b> spam </b>, it will not be counted towards your participation in Hacktoberfest.
 
@@ -32,13 +36,13 @@
 
 
 ##  :label:  Rules Regarding Submission of PR :bookmark:
-➡️ Participant can contribute anything he wishes for.
+➡️ Participants can freely provide valuable contributions.
 
-➡️ Make sure to pull request in the respective folder. 
+➡️ Ensure that you submit a pull request in the appropriate folder. 
 
 ➡️ Your <b>PR</b> must be valid.
 
-➡️ Don't just copy and paste code from other website/blogs .
+➡️ Refrain from simply copying code from websites or blogs.
 
 ➡️ Submitting someone else work will be reported as 🔴spam.
 
